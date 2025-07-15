@@ -102,7 +102,7 @@ export default function HomePage() {
                 transition: { duration: 2 },
               }}
               className="desktop:w-[500px] tablet:w-36 w-24"
-              src="/banner.png"
+              src="/logo.png"
               alt=""
             />
             <motion.img
