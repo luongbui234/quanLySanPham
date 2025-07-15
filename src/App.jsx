@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import Template from "./Template/Template";
+import Products from "./pages/Products/Products";
+import Favorite from "./pages/Favorite/Favorite";
+import { Toaster } from "react-hot-toast";
+import History from "./pages/History/History";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Toaster />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Template content={<HomePage />} />} />
+          <Route
+            path="/products"
+            element={<Template content={<Products />} />}
+          />
+          <Route
+            path="/favorite"
+            element={<Template content={<Favorite />} />}
+          />
+          <Route path="/history" element={<Template content={<History />} />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
